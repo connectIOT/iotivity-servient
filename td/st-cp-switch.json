@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "http://w3c.github.io/wot/w3c-wot-td-context.jsonld",
+    {"st": "http://example.org/smartthings#"}
+  ],
+  "@type": "capability",
+  "name": "switch",
+  "encodings": [ "JSON" ],
+  "uris": [ "switch" ],
+  "properties": [
+    {
+      "@type": "st:switch",
+      "name": "switch",
+      "valueType": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "string",
+        "enum": [ "on", "off" ]
+      },
+      "writable": false,
+      "hrefs": [ "switch" ]
+    }
+  ],
+  "actions": [
+    {
+      "@type": "st:on",
+      "name": "on",
+      "inputData": {
+        "valueType": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "string",
+          "enum": [ "on" ]
+        }
+      },
+      "hrefs": [ "switchActions" ]
+    },
+    {
+      "@type": "st:off",
+      "name": "off",
+      "inputData": {
+        "valueType": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "string",
+          "enum": [ "off" ]
+        }
+      },
+      "hrefs": [ "switchActions" ]
+    },
+  ]
+}

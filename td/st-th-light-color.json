@@ -1,0 +1,203 @@
+{
+  "@context": [
+    "http://w3c.github.io/wot/w3c-wot-td-context.jsonld",
+    {"st": "http://example.org/smartthings#"}
+  ],
+  "@type": "thing",
+  "name": "colorcontrol-light",
+  "encodings": [ "JSON" ],
+  "uris": [
+    "coap://www.myled.com:5683/light/",
+    "http://www.myled.com:8080/light/"
+  ],
+  "properties": [
+    {
+      "@type": "st:switch",
+      "name": "switch",
+      "valueType": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "string",
+        "enum": [ "on", "off" ]
+      },
+      "writable": false,
+      "hrefs": [ "switch" ]
+    },
+    {
+      "@type": "st:level",
+      "name": "level",
+      "valueType": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "number",
+        "minimum": 0,
+        "maximum": 100
+      },
+      "writable": false,
+      "hrefs": [ "level" ]
+    },
+    {
+      "@type": "st:hue",
+      "name": "hue",
+      "valueType": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "number",
+        "minimum": 0,
+        "maximum": 100
+      },
+      "writable": false,
+      "hrefs": [ "hue" ]
+    },
+    {
+      "@type": "st:saturation",
+      "name": "saturation",
+      "valueType": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "number",
+        "minimum": 0,
+        "maximum": 100
+      },
+      "writable": false,
+      "hrefs": [ "saturation" ]
+    },
+    {
+      "@type": "st:color",
+      "name": "color",
+      "valueType": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "hue": { "type": "number" },
+          "saturation": { "type": "number" },
+          "level": { "type": "number" },
+          "switch": { "type": "string" },
+          "hex": { "type": "string" }
+        }
+      },
+      "writable": false,
+      "hrefs": [ "color" ]
+    }
+  ],
+  "actions": [
+    {
+      "@type": "st:on",
+      "name": "on",
+      "inputData": {
+        "valueType": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "string",
+          "enum": [ "on" ]
+        }
+      },
+      "hrefs": [ "switchActions" ]
+    },
+    {
+      "@type": "st:off",
+      "name": "off",
+      "inputData": {
+        "valueType": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "string",
+          "enum": [ "off" ]
+        }
+      },
+      "hrefs": [ "switchActions" ]
+    },
+    {
+      "@type": "st:setlevel",
+      "name": "setlevel",
+      "inputData": {
+        "valueType": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "object",
+          "required": [ "level" ],
+          "properties": {
+            "level": { 
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100 
+            },
+            "transitiontime": { 
+              "type": "number",
+              "minumum": 0,
+              "maximum": 6553
+            }
+          }
+        }  
+      },
+      "hrefs": [ "levelActions" ]
+    }, 
+    {
+      "@type": "st:sethue",
+      "name": "sethue",
+      "inputData": {
+        "valueType": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "object",
+          "properties": {
+            "hue": { 
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100 
+            }
+          }
+        }
+      },
+      "hrefs": [ "colorActions" ]
+    },
+    {
+      "@type": "st:setsaturation",
+      "name": "setsaturation",
+      "inputData": {
+        "valueType": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "object",
+          "properties": {
+            "saturation": { 
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100 
+            }
+          }
+        }
+      },
+      "hrefs": [ "colorActions" ]
+    },
+    {
+      "@type": "st:setcolor",
+      "name": "setcolor",
+      "inputData": {
+        "valueType": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "object",
+          "properties": {
+            "hue": { 
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100 
+            },
+            "saturation": { 
+              "type": "number",
+              "minumum": 0,
+              "maximum": 100
+            },
+            "level": { 
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100 
+            },
+            "switch": { 
+              "type": "string",
+              "enum": [ "on", "off" ]
+            },
+            "hex": { 
+              "type": "string",
+              "pattern": "^\#[0-9a-fA-F]",
+              "minLength": 7,
+              "maxLength": 7
+            }
+          }
+        }  
+      },
+      "hrefs": [ "colorActions" ]
+    }  
+  ]
+}

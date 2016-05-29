@@ -1,0 +1,48 @@
+{
+  "@context": ["http://w3c.github.io/wot/w3c-wot-td-context.jsonld",
+               {"st": "http://example.org/smartthings#"}],
+  "@type": "Thing",
+  "name": "ExampleLight",
+  "uris": [
+    "coap://www.example.com:5683/exlight",
+    "http://www.example.com:8080/exlight"
+  ],
+  "encodings": [ "JSON" ],
+  },
+  "properties": [
+    {
+      "@type": "st:switch",
+      "name": "switch",
+      "valueType": "xsd:string",
+      "writable": false,
+      "hrefs": [ "switch" ]
+    }
+  ],
+  "actions": [
+    {
+      "@type": "actuator:fadeIn",
+      "name": "fadeIn",
+      "inputData": {
+        "valueType": "xsd:short",
+        "actuator:unit": "actuator:ms"
+      },
+      "hrefs": ["in", "myled/in"  ]
+    },
+    {
+      "@type": "actuator:fadeOut",
+      "name": "fadeOut",
+      "inputData": {
+        "valueType": "xsd:short",
+        "actuator:unit": "actuator:ms"
+      },
+      "hrefs": ["out", "myled/out" ]
+    }
+  ],
+  "events": [
+    {
+      "name": "criticalCondition",
+      "valueType": "xsd:string",
+      "hrefs": [ "ev", "myled/event" ]
+    }
+  ]
+}
