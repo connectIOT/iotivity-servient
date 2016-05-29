@@ -1,0 +1,88 @@
+{
+  "@context": [
+    "http://w3c.github.io/wot/w3c-wot-td-context.jsonld",
+    {"st": "http://example.org/smartthings#"}
+  ],
+  "@type": "thing",
+  "name": "switchlevel",
+  "encodings": [ "JSON" ],
+  "uris": [
+    "coap://www.myled.com:5683/light",
+    "http://www.myled.com:8080/light/"
+  ],
+  "properties": [
+    {
+      "@type": "st:switch",
+      "name": "switch",
+      "valueType": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "string",
+        "enum": [ "on", "off" ]
+      },
+      "writable": false,
+      "hrefs": [ "switch" ]
+    },
+    {
+      "@type": "st:level",
+      "name": "level",
+      "valueType": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "number",
+        "minimum": 0,
+        "maximum": 100
+      },
+      "writable": false,
+      "hrefs": [ "level" ]
+    }
+  ],
+  "actions": [
+    {
+      "@type": "st:on",
+      "name": "on",
+      "inputData": {
+        "valueType": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "string",
+          "enum": [ "on" ]
+        }
+      },
+      "hrefs": [ "switchActions" ]
+    },
+    {
+      "@type": "st:off",
+      "name": "off",
+      "inputData": {
+        "valueType": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "string",
+          "enum": [ "off" ]
+        }
+      },
+      "hrefs": [ "switchActions" ]
+    },
+    {
+      "@type": "st:setlevel",
+      "name": "setlevel",
+      "inputData": {
+        "valueType": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "object",
+          "required": [ "level" ],
+          "properties": {
+            "level": { 
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100 
+            },
+            "transitiontime": { 
+              "type": "number",
+              "minumum": 0,
+              "maximum": 6553
+            }
+          }
+        }  
+      },
+      "hrefs": [ "levelActions" ]
+    }  
+  ]
+}
