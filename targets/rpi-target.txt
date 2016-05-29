@@ -1,0 +1,4 @@
+rpi-target build
+
+Setp by setp instructions for setting up an instance of iotifity-servient on a Raspberry Pi single board computer
+
