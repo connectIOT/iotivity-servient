@@ -1,0 +1,56 @@
+digitalocean-target build
+
+Step by step instructions for setting up an iotivity-servient on a Digital Ocean droplet
+
+Setup for iotivity-node on fresh ubuntu 16.04:
+
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install nodejs
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+sudo apt-get install npm
+
+Install deps for iotivity-node and iotivity:
+
+sudo apt-get install unzip
+sudo apt-get install scons
+sudo apt-get install wget
+sudo apt-get install git
+sudo apt-get install make
+
+sudo apt-get install libcurl4-gnutls-dev
+sudo apt-get install libcurl4-openssl-dev
+sudo apt-get install libcurl4-nss-dev
+sudo apt-get install libcurl4-openssl-dev
+sudo apt-get install libglib2.0-dev
+sudo apt-get install uuid-dev
+sudo apt-get install libboost-all-dev
+
+Install iotivity-node
+git clone https://github.com/otcshare/iotivity-node
+npm install
+
+sudo npm install iot-rest-api-server
+
+Test:
+1. Start the resource server with an observable resource
+first terminal: 
+> cd iotivity-node/js
+> node high-level-server-example.js
+
+2. Start the HTTP proxy server
+second terminal:
+> cd node_modules/iot-rest-api-server
+> node index.js
+
+3. Start the HTTP client
+third terminal:
+> cd node_modules/iot-rest-api-server/test
+> ./oic-get "/res"
+should return some json values including 128bit UUID with the tag "di". This will be needed to test the proxy
+do another oic-get and substitute the UUID value for "UUID" below:
+> ./oic-get "/a/high-level-example?di=UUID"
+should return a json containg the name of a city in Finland
+next test observe over HTTP:
+> ./oic-get "/a/high-level-example?di=UUID&obs=1"
+and there should be periodic responses with different Finnish town names in them.
