@@ -1,0 +1,24 @@
+[
+  {
+    "anchor": "/example/light/",
+    "rel": "self",
+    "href": "",
+    "rt": ["st.thing", "stc.light"]
+  },
+  {
+    "href": "switch",
+    "rt": ["st.capability", "stc.switch"]
+  },
+  {
+    "href": "levelcontrol",
+    "rt": ["st.capability", "stc.switchlevel"]
+  },
+  {
+    "href": "colortemp",
+    "rt": ["st.capability", "stc.colortemperature"]
+  },
+  {
+    "href": "colorcontrol",
+    "rt": ["st.capability", "stc.colorcontrol"]
+  }
+]

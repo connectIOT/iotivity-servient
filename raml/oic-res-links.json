@@ -1,0 +1,36 @@
+
+[
+  {
+    "href": "/example/light/",
+    "rt": ["st.thing", "stc.light"]
+  },
+  {
+    "anchor": "/example/light/",
+    "href": "switch",
+    "rt": ["st.capability", "stc.switch"]
+  },
+  {
+    "anchor": "/example/light/",
+    "href": "levelcontrol",
+    "rt": ["st.capability", "stc.switchlevel"]
+  },
+  {
+    "anchor": "/example/light/",
+    "href": "colortemp",
+    "rt": ["st.capability", "stc.colortemperature"]
+  },
+  {
+    "anchor": "/example/light/",
+    "href": "colorcontrol",
+    "rt": ["st.capability", "stc.colorcontrol"]
+  },
+  {
+    "href": "/example/thermo/",
+    "rt": ["st.thing", "stc.thermometer"]
+  },
+  {
+    "anchor": "/example/thermo/",
+    "href": "temp",
+    "rt": ["st.capability", "stc.temperaturemeasurement"]
+  }
+]
