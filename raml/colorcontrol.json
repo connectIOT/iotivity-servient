@@ -1,0 +1,32 @@
+
+[
+  {
+    "anchor": "/example/light/colorcontrol",
+    "rel": "self",
+    "href": "",
+    "rt": ["st.capability", "stc.colorcontrol"]
+  },  {
+    "href": "hue",
+    "rt": ["st.attribute", "stc.hue"]
+  },
+  {
+    "href": "saturation",
+    "rt": ["st.attribute", "stc.saturation"]
+  },
+  {
+    "href": "color",
+    "rt": ["st.attribute", "stc.color"]
+  },
+  {
+    "href": "sethue",
+    "rt": ["st.command", "stc.sethue"]
+  },
+  {
+    "href": "setsaturation",
+    "rt": ["st.command", "stc.setsaturation"]
+  },
+  {
+    "href": "setcolor",
+    "rt": ["st.command", "stc.setcolor"]
+  }
+]

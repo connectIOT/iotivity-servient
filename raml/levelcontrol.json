@@ -1,0 +1,17 @@
+
+[
+  {
+    "anchor": "/example/light/levelcontrol",
+    "rel": "self",
+    "href": "",
+    "rt": ["st.capability", "stc.switchlevel"]
+  },
+  {
+    "href": "level",
+    "rt": ["st.attribute", "stc.level"]
+  },
+  {
+    "href": "setlevel",
+    "rt": ["st.command", "stc.setlevel"]
+  }
+]

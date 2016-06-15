@@ -1,0 +1,20 @@
+[
+  {
+    "anchor": "/example/light/switch",
+    "rel": "self",
+    "href": "",
+    "rt": ["st.capability", "stc.switch"]
+  },
+  {
+    "href": "onoff",
+    "rt": ["st.attribute", "stc.onoff"]
+  },
+  {
+    "href": "on",
+    "rt": ["st.command", "stc.on"]
+  },
+  {
+    "href": "off",
+    "rt": ["st.command", "stc.off"]
+  }
+]
