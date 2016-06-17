@@ -5,7 +5,8 @@
     "rel": "self",
     "href": "",
     "rt": ["st.capability", "stc.colorcontrol"]
-  },  {
+  },
+  {
     "href": "hue",
     "rt": ["st.attribute", "stc.hue"]
   },
