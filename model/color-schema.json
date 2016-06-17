@@ -1,6 +1,6 @@
 {
   "title": "st.color",
-	"type": "object",
+  "type": "object",
   "properties": {
     "hue": {
       "description": "hue attribute",
