@@ -1,34 +1,34 @@
 {
-	"title": "st.color",
+  "title": "st.color",
 	"type": "object",
-	"properties": {
-		"hue": {
+  "properties": {
+    "hue": {
       "description": "hue attribute",
       "type": "number",
-			"minimum": 0,
+      "minimum": 0,
       "maximum": 100
 		},
-		"saturation": {
+    "saturation": {
       "description": "saturation attribute",
       "type": "number",
-			"minimum": 0,
+      "minimum": 0,
       "maximum": 100
-		},
-		"level": {
-			"description": "level attribute",
-			"type": "number",
-			"minimum": 0,
+    },
+    "level": {
+      "description": "level attribute",
+      "type": "number",
+      "minimum": 0,
       "maximum": 100
-		},
+    },
     "switch": {
-			"description": "switch (onoff) attribute",
-			"type": "string",
+      "description": "switch (onoff) attribute",
+      "type": "string",
       "enum": ["on", "off"]
-		},
+    },
     "hex": {
-			"description": "color in hex, e.g. FFFFFF ",
-			"type": "string",
+      "description": "color in hex, e.g. FFFFFF ",
+      "type": "string",
       "pattern": "^[a-fA-F0-9]{6}$"
-		}
-	}
+    }
+  }
 }
