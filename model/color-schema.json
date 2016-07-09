@@ -7,7 +7,7 @@
       "type": "number",
       "minimum": 0,
       "maximum": 100
-		},
+    },
     "saturation": {
       "description": "saturation attribute",
       "type": "number",

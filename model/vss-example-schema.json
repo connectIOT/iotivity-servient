@@ -1,0 +1,22 @@
+{
+  "title": "vss.engine",
+  "type": "object",
+  "properties": {
+    "ect": {
+      "description": "Engine coolant temperature",
+      "type": "number"
+    },
+    "eot": {
+      "description": "Engine oil temperature",
+      "type": "number"
+    },
+    "tps": {
+      "description": "Throttle position sensor",
+      "type": "number"
+    },
+    "rpm": {
+      "description": "Engine speed",
+      "type": "number"
+    }
+  }
+}
