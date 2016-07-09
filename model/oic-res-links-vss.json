@@ -1,0 +1,47 @@
+
+[
+  {
+    "href": "/example/vehicle/",
+    "rt": ["vss.object", "vss.vehicle"]
+  },
+  {
+    "anchor": "/example/vehicle/",
+    "href": "engine",
+    "rt": ["vss.branch", "vss.engine"]
+  },
+  {
+    "anchor": "/example/vehicle/",
+    "href": "body",
+    "rt": ["vss.branch", "vss.engine"]
+  },
+  {
+    "anchor": "/example/vehicle/",
+    "href": "transmission",
+    "rt": ["vss.branch", "vss.engine"]
+  },
+  {
+    "anchor": "/example/vehicle/",
+    "href": "cabin",
+    "rt": ["vss.branch", "vss.engine"]
+  },
+  {
+    "anchor": "/example/vehicle/engine/",
+    "href": "ect",
+    "rt": ["vss.signal", "vss.ect"]
+  },
+  {
+    "anchor": "/example/vehicle/engine/",
+    "href": "eot",
+    "rt": ["vss.signal", "vss.eot"]
+  },
+  {
+    "anchor": "/example/vehicle/engine/",
+    "href": "tps",
+    "rt": ["vss.signal", "vss.tps"]
+  },
+  {
+    "anchor": "/example/vehicle/engine/",
+    "href": "rpm",
+    "rt": ["vss.signal", "vss.rpm"]
+  }
+]
