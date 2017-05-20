@@ -4,11 +4,13 @@ Step by step instructions for setting up an iotivity-servient on a Digital Ocean
 
 Setup for iotivity-node on fresh ubuntu 16.04:
 
+make a user account with sudo enabled
+
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install nodejs
 sudo ln -s /usr/bin/nodejs /usr/bin/node
-sudo apt-get install npm
+sudo apt-get install npm --fix-missing
 
 Install deps for iotivity-node and iotivity:
 
@@ -26,15 +28,13 @@ sudo apt-get install libglib2.0-dev
 sudo apt-get install uuid-dev
 sudo apt-get install libboost-all-dev
 
-Install iotivity-node
-git clone https://github.com/otcshare/iotivity-node
-npm install
+npm install iot-rest-api-server
 
-sudo npm install iot-rest-api-server
+(Installing iot-rest-aoi-server installs iotivity and iotivity-node)
 
 Test:
 1. Start the resource server with an observable resource
-first terminal: 
+first terminal:
 > cd iotivity-node/js
 > node high-level-server-example.js
 
