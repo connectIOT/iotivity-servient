@@ -1,0 +1,40 @@
+{
+  "comment": "OCF Resource Instance Definition Format example",
+  "resourcePath": "/example/freezer/temperature",
+  "discoverable": true,
+  "observable": true,
+  "commonProperties": [
+    {
+      "name": "id",
+      "interfaces": ["oic.if.baseline"],
+      "value": "freezer.temperature.setpoint"
+    },
+    {
+      "name": "n",
+      "interfaces": ["oic.if.baseline"],
+      "value": "Freezer Temperature Setpoint"
+    }
+  ],
+  "resourceTypes": [
+    {
+      "type": "oic.r.temperature",
+      "properties": [
+        {
+          "name": "temperature",
+          "interfaces": ["oic.if.s", "oic.if.a"],
+          "value": 0,
+        },
+        {
+          "name": "units",
+          "interfaces": ["oic.if.r"],
+          "value": "C",
+        },
+        {
+          "name": "range",
+          "interfaces": ["oic.if.r"],
+          "value": [0, 100],
+        }
+      ]
+    }
+  ]
+}
