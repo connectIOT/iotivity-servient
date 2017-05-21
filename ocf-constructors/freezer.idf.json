@@ -1,0 +1,59 @@
+{
+  "comment": "OCF Resource Instance Definition Format example",
+  "resourcePath": "/example/freezer/",
+  "discoverable": true,
+  "observable": true,
+  "linkAttributes": {
+    "title": "Freezer Example",
+    "ins": "freezer"
+  },
+  "defaultInterface": ["oic.if.b"],
+  "commonProperties": [
+    {
+      "name": "id",
+      "interfaces": ["oic.if.baseline"],
+      "value": "freezer"
+    },
+    {
+      "name": "n",
+      "interfaces": ["oic.if.baseline"],
+      "value": "Freezer example"
+    }
+  ],
+  "resourceTypes": [
+    {
+      "type": "oic.r.thermostat",
+      "properties": []
+    },
+    {
+      "type": "oic.wk.col",
+      "properties": [
+        {
+          "name": "rts",
+          "interfaces": ["oic.if.baseline"],
+          "value": ["oic.r.temperature", "oic.r.conditionalnotification"]
+        },
+        {
+          "name": "links",
+          "interfaces": ["oic.if.ll", "oic.if.b"],
+          "value": [
+            {
+              "href": "temperature",
+              "rt": ["oic.r.temperature"],
+              "if": ["oic.if.s"],
+              "ins": "freezer.temperature",
+              "title": "Freezer Temperature"
+            },
+            {
+              "href": "set-temperature",
+              "rt": ["oic.r.temperature"],
+              "if": ["oic.if.s", "ic.if.a"],
+              "ins": "freezer.temperature.setpoint",
+              "title": "Freezer Temperature Setpoint"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
