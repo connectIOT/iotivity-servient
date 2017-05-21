@@ -1,5 +1,5 @@
 {
-  "comment": "OCF Resource Instance Definition Format example",
+  "comment": "OCF Resource, JSON Instance Format example",
   "resourcePath": "/example/freezer/",
   "discoverable": true,
   "observable": true,
