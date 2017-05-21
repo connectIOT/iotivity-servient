@@ -3,6 +3,11 @@
   "resourcePath": "/example/freezer/temperature",
   "discoverable": true,
   "observable": true,
+  "linkAttributes": {
+    "title": "Freezer Temperature",
+    "ins": "freezer.temperature"
+  },
+  "defaultInterface": ["oic.if.s"],
   "commonProperties": [
     {
       "name": "id",

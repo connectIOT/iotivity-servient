@@ -1,8 +1,13 @@
 {
   "comment": "OCF Resource Instance Definition Format example",
-  "resourcePath": "/example/freezer/temperature",
+  "resourcePath": "/example/freezer/set-temperature",
   "discoverable": true,
   "observable": true,
+  "linkAttributes": {
+    "title": "Freezer Temperature Setpoint",
+    "ins": "freezer.temperature.setpoint"
+  },
+  "defaultInterface": ["oic.if.a"],  
   "commonProperties": [
     {
       "name": "id",
