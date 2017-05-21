@@ -8,58 +8,48 @@
     "ins": "freezer.temperature"
   },
   "defaultInterface": ["oic.if.s"],
-  "commonProperties": [
-    {
-      "name": "id",
+  "properties": {
+    "id": {
       "interfaces": ["oic.if.baseline"],
       "value": "freezer.temperature"
     },
-    {
-      "name": "n",
+    "n": {
       "interfaces": ["oic.if.baseline"],
       "value": "Freezer Temperature"
     }
-  ],
-  "resourceTypes": [
-    {
-      "type": "oic.r.temperature",
-      "properties": [
-        {
-          "name": "temperature",
+  },
+  "resourceTypes": {
+    "oic.r.temperature": {
+      "properties": {
+        "temperature": {
           "interfaces": ["oic.if.s"],
           "value": 0,
         },
-        {
-          "name": "units",
+        "units": {
           "interfaces": ["oic.if.r"],
           "value": "C",
         },
-        {
-          "name": "range",
+        "range": {
           "interfaces": ["oic.if.r"],
           "value": [0, 100],
         }
-      ]
+      }
     },
-    {
-      "type": "oic.r.conditionalnotification",
-      "properties": [
-        {
-          "name": "minnotificationperiod",
+    "oic.r.conditionalnotification": {
+      "properties": {
+        "minnotificationperiod": {
           "interfaces": ["oic.if.r", "oic.if.rw"],
           "value": 10,
         },
-        {
-          "name": "maxnotificationperiod",
+        "maxnotificationperiod": {
           "interfaces": ["oic.if.r", "oic.if.rw"],
           "value": 600,
         },
-        {
-          "name": "threshold",
+        "threshold": {
           "interfaces": ["oic.if.r", "oic.if.rw"],
           "value": 1,
         }
-      ]
+      }
     }
-  ]
+  }
 }
