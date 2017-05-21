@@ -46,7 +46,7 @@
             },
             {
               "href": "set-temperature",
-              "rt": ["oic.r.temperature"],
+              "rt": ["oic.r.temperature", "oic.r.action"],
               "if": ["oic.if.s", "ic.if.a"],
               "ins": "freezer.temperature.setpoint",
               "title": "Freezer Temperature Setpoint"
