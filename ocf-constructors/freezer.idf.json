@@ -8,33 +8,26 @@
     "ins": "freezer"
   },
   "defaultInterface": ["oic.if.b"],
-  "commonProperties": [
-    {
-      "name": "id",
+  "properties": {
+    "id": {
       "interfaces": ["oic.if.baseline"],
       "value": "freezer"
     },
-    {
-      "name": "n",
+    "n": {
       "interfaces": ["oic.if.baseline"],
       "value": "Freezer example"
     }
-  ],
-  "resourceTypes": [
-    {
-      "type": "oic.r.thermostat",
-      "properties": []
+  },
+  "resourceTypes": {
+    "oic.d.thermostat": {
     },
-    {
-      "type": "oic.wk.col",
-      "properties": [
-        {
-          "name": "rts",
+    "oic.wk.col": {
+      "properties": {
+        "rts": {
           "interfaces": ["oic.if.baseline"],
           "value": ["oic.r.temperature", "oic.r.conditionalnotification"]
         },
-        {
-          "name": "links",
+        "links": {
           "interfaces": ["oic.if.ll", "oic.if.b"],
           "value": [
             {
@@ -53,7 +46,7 @@
             }
           ]
         }
-      ]
+      }
     }
-  ]
+  }
 }

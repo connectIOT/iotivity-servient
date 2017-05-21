@@ -8,63 +8,52 @@
     "ins": "freezer.temperature.setpoint"
   },
   "defaultInterface": ["oic.if.a"],
-  "commonProperties": [
-    {
-      "name": "id",
+  "properties": {
+    "id": {
       "interfaces": ["oic.if.baseline"],
       "value": "freezer.temperature.setpoint"
     },
-    {
-      "name": "n",
+    "n": {
       "interfaces": ["oic.if.baseline"],
       "value": "Freezer Temperature Setpoint"
     }
-  ],
-  "resourceTypes": [
-    {
-      "type": "oic.r.temperature",
-      "properties": [
-        {
-          "name": "temperature",
+  },
+  "resourceTypes": {
+    "oic.r.temperature": {
+      "properties": {
+        "temperature": {
           "interfaces": ["oic.if.s", "oic.if.a"],
           "value": 0,
         },
-        {
-          "name": "units",
+        "units": {
           "interfaces": ["oic.if.r"],
           "value": "C",
         },
-        {
-          "name": "range",
+        "range": {
           "interfaces": ["oic.if.r"],
           "value": [0, 100],
         }
-      ]
+      }
     },
-    {
-      "type": "oic.r.action",
-      "properties": [
-        {
-          "name": "action.type",
+    "oic.r.action": {
+      "properties": {
+        "action.type": {
           "interfaces": ["oic.if.r"],
           "value": "set-temperature",
         },
-        {
-          "name": "action.method",
+        "action.method": {
           "interfaces": ["oic.if.r"],
           "value": "update",
         },
-        {
-          "name": "action.rt",
+        "action.rt": {
           "interfaces": ["oic.if.r"],
           "value": ["oic.r.temperature"],
         },
-        {
-          "name": "action.if",
+        "action.if": {
           "interfaces": ["oic.if.r"],
           "value": ["oic.if.a"],
         }
-      ]
+      }
     }
-  ]
+  }
 }
