@@ -1,0 +1,46 @@
+
+[
+  {
+    "bn": "/example/freezer/temperature/"
+  },
+  {
+    "n": "rt",
+    "va":  ["oic.r.temperature", "oic.r.conditionalnotification"]
+  },
+  {
+    "n": "if",
+    "va":  ["oic.if.s", "oic.if.r", "oic.if.rw", "oic.if.baseline"]
+  },
+  {
+    "n": "id",
+    "vs": "freezer.temperature"
+  },
+  {
+    "n": "n",
+    "vs": "Freezer Temperature"
+  },
+  {
+    "n": "range",
+    "va": [0,100]
+  },
+  {
+    "n": "units",
+    "vs": "C"
+  },
+  {
+    "n": "temperature",
+    "v": 0
+  },
+  {
+    "n": "minnotifyperiod",
+    "v": 10
+  },
+  {
+    "n": "maxnotifyperiod",
+    "v": 600
+  },
+  {
+    "n": "threshold",
+    "v": 1
+  }
+]
