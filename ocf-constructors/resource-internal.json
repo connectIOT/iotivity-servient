@@ -1,0 +1,72 @@
+
+[
+  {
+    "href": "/example/freezer/temperature",
+    "rt": ["oic.r.temperature", "oic.r.conditionalnotification"],
+    "if": ["oic.if.s", "oic.if.r", "oic.if.rw", "oic.if.baseline"],
+    "ins": "freezer.temperature",
+    "title": "Freezer Temperature",
+    "properties": [
+      {
+        "name": "rt",
+        "rt": ["oic.r.temperature", "oic.r.conditionalnotification"],
+        "if": ["oic.if.baseline"],
+        "value":  ["oic.r.temperature", "oic.r.conditionalnotification"]
+      },
+      {
+        "name": "if",
+        "rt": ["oic.r.temperature", "oic.r.conditionalnotification"],
+        "if": ["oic.if.baseline"],
+        "value":  ["oic.if.s", "oic.if.r", "oic.if.rw", "oic.if.baseline"]
+      },
+      {
+        "name": "id",
+        "rt": ["oic.r.temperature", "oic.r.conditionalnotification"],
+        "if": ["oic.if.baseline"],
+        "value": "freezer.temperature"
+      },
+      {
+        "name": "n",
+        "rt": ["oic.r.temperature", "oic.r.conditionalnotification"],
+        "if": ["oic.if.baseline"],
+        "value": "Freezer Temperature"
+      },
+      {
+        "name": "range",
+        "rt": ["oic.r.temperature"],
+        "if": ["oic.if.r"],
+        "value": [0,100]
+      },
+      {
+        "name": "units",
+        "rt": ["oic.r.temperature"],
+        "if": ["oic.if.r"],
+        "value": "C"
+      },
+      {
+        "name": "temperature",
+        "rt": ["oic.r.temperature"],
+        "if": ["oic.if.s"],
+        "value": 0
+      },
+      {
+        "name": "minnotifyperiod",
+        "rt": ["oic.r.conditionalnotification"],
+        "if": ["oic.if.r", "oic.if.rw"],
+        "value": 10
+      },
+      {
+        "name": "maxnotifyperiod",
+        "rt": ["oic.r.conditionalnotification"],
+        "if": ["oic.if.r", "oic.if.rw"],
+        "value": 600
+      },
+      {
+        "name": "thresholdd",
+        "rt": ["oic.r.conditionalnotification"],
+        "if": ["oic.if.r", "oic.if.rw"],
+        "value": 1
+      }
+    ]
+  }
+]

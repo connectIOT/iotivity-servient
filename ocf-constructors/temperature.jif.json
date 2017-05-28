@@ -37,11 +37,11 @@
     },
     "oic.r.conditionalnotification": {
       "properties": {
-        "minnotificationperiod": {
+        "minnotifyperiod": {
           "interfaces": ["oic.if.r", "oic.if.rw"],
           "value": 10,
         },
-        "maxnotificationperiod": {
+        "maxnotifyperiod": {
           "interfaces": ["oic.if.r", "oic.if.rw"],
           "value": 600,
         },
