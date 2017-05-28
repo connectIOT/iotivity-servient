@@ -63,7 +63,7 @@
         "value": 600
       },
       {
-        "name": "thresholdd",
+        "name": "threshold",
         "rt": ["oic.r.conditionalnotification"],
         "if": ["oic.if.r", "oic.if.rw"],
         "value": 1

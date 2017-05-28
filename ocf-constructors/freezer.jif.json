@@ -10,11 +10,9 @@
   "defaultInterface": ["oic.if.b"],
   "properties": {
     "id": {
-      "interfaces": ["oic.if.baseline"],
       "value": "freezer"
     },
     "n": {
-      "interfaces": ["oic.if.baseline"],
       "value": "Freezer example"
     }
   },
@@ -24,7 +22,6 @@
     "oic.wk.col": {
       "properties": {
         "rts": {
-          "interfaces": ["oic.if.baseline"],
           "value": ["oic.r.temperature", "oic.r.conditionalnotification"]
         },
         "links": {

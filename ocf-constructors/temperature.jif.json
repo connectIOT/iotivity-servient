@@ -10,11 +10,9 @@
   "defaultInterface": ["oic.if.s"],
   "properties": {
     "id": {
-      "interfaces": ["oic.if.baseline"],
       "value": "freezer.temperature"
     },
     "n": {
-      "interfaces": ["oic.if.baseline"],
       "value": "Freezer Temperature"
     }
   },
@@ -22,15 +20,13 @@
     "oic.r.temperature": {
       "properties": {
         "temperature": {
-          "interfaces": ["oic.if.s"],
+          "readOnly": true,
           "value": 0,
         },
         "units": {
-          "interfaces": ["oic.if.r"],
           "value": "C",
         },
         "range": {
-          "interfaces": ["oic.if.r"],
           "value": [0, 100],
         }
       }
@@ -38,15 +34,12 @@
     "oic.r.conditionalnotification": {
       "properties": {
         "minnotifyperiod": {
-          "interfaces": ["oic.if.r", "oic.if.rw"],
           "value": 10,
         },
         "maxnotifyperiod": {
-          "interfaces": ["oic.if.r", "oic.if.rw"],
           "value": 600,
         },
         "threshold": {
-          "interfaces": ["oic.if.r", "oic.if.rw"],
           "value": 1,
         }
       }
