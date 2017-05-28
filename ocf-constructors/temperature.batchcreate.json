@@ -1,0 +1,50 @@
+
+[
+  {
+    "href": "temperature",
+    "rt": ["oic.r.temperature"],
+    "if": ["oic.if.s"],
+    "rep": {
+      "rt": ["oic.r.temperature"],
+      "if": ["oic.if.s"],
+      "temperature": 0
+    }
+  },
+  {
+    "href": "temperature",
+    "rt": ["oic.r.temperature", "oic.r.conditionalnotification"],
+    "if": ["oic.if.baseline"],
+    "ins": "freezer.temperature",
+    "title": "Freezer Temperature",
+    "p": { "bm": 3 },
+    "rep": {
+      "rt": ["oic.r.temperature", "oic.r.conditionalnotification"],
+      "if": ["oic.if.baseline"],
+      "id": "freezer.temperature",
+      "n": "Freezer Temperature"
+    }
+  },
+  {
+    "href": "temperature",
+    "rt": ["oic.r.temperature"],
+    "if": ["oic.if.r"],
+    "rep": {
+      "rt": ["oic.r.temperature"],
+      "if": ["oic.if.r"],
+      "units": "C",
+      "range": [0,100]
+    }
+  },
+  {
+    "href": "temperature",
+    "rt": ["oic.r.conditionalnotification"],
+    "if": ["oic.if.rw", "oic.if.r"],
+    "rep": {
+      "rt": ["oic.r.conditionalnotification"],
+      "if": ["oic.if.rw", "oic.if.r"],
+      "minnotifyperiod": 10,
+      "maxnotifyperiod": 600,
+      "threshold": 1
+    }
+  }
+]
