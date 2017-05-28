@@ -1,7 +1,7 @@
 
 [
   {
-    "href": "temperature",
+    "href": "/example/freezer/temperature",
     "rt": ["oic.r.temperature"],
     "if": ["oic.if.s"],
     "rep": {
@@ -11,21 +11,21 @@
     }
   },
   {
-    "href": "temperature",
-    "rt": ["oic.r.temperature", "oic.r.conditionalnotification"],
+    "href": "/example/freezer/temperature",
+    "rt": ["oic.r.temperature"],
     "if": ["oic.if.baseline"],
     "ins": "freezer.temperature",
     "title": "Freezer Temperature",
     "p": { "bm": 3 },
     "rep": {
-      "rt": ["oic.r.temperature", "oic.r.conditionalnotification"],
+      "rt": ["oic.r.temperature"],
       "if": ["oic.if.baseline"],
       "id": "freezer.temperature",
       "n": "Freezer Temperature"
     }
   },
   {
-    "href": "temperature",
+    "href": "/example/freezer/temperature",
     "rt": ["oic.r.temperature"],
     "if": ["oic.if.r"],
     "rep": {
@@ -36,7 +36,7 @@
     }
   },
   {
-    "href": "temperature",
+    "href": "/example/freezer/temperature",
     "rt": ["oic.r.conditionalnotification"],
     "if": ["oic.if.rw", "oic.if.r"],
     "rep": {

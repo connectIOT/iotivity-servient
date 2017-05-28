@@ -10,11 +10,9 @@
   "defaultInterface": ["oic.if.a"],
   "properties": {
     "id": {
-      "interfaces": ["oic.if.baseline"],
       "value": "freezer.temperature.setpoint"
     },
     "n": {
-      "interfaces": ["oic.if.baseline"],
       "value": "Freezer Temperature Setpoint"
     }
   },
@@ -22,15 +20,12 @@
     "oic.r.temperature": {
       "properties": {
         "temperature": {
-          "interfaces": ["oic.if.s", "oic.if.a"],
           "value": 0,
         },
         "units": {
-          "interfaces": ["oic.if.r"],
           "value": "C",
         },
         "range": {
-          "interfaces": ["oic.if.r"],
           "value": [0, 100],
         }
       }
@@ -38,19 +33,15 @@
     "oic.r.action": {
       "properties": {
         "action.type": {
-          "interfaces": ["oic.if.r"],
           "value": "set-temperature",
         },
         "action.method": {
-          "interfaces": ["oic.if.r"],
           "value": "update",
         },
         "action.rt": {
-          "interfaces": ["oic.if.r"],
           "value": ["oic.r.temperature"],
         },
         "action.if": {
-          "interfaces": ["oic.if.r"],
           "value": ["oic.if.a"],
         }
       }
