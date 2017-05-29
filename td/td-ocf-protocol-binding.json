@@ -1,0 +1,82 @@
+{
+  "semtype": ["thing", "sch:light"],
+  "name": "Example Light Thing",
+  "interactions": [
+    {
+      "semtype": ["property", "sch:level"],
+      "name": "brightness level",
+      "outputdata": {
+        "type": "object",
+        "properties": {
+          "level": {
+            "type": "number",
+            "semtype": "sch:level"
+          }
+        }
+      },
+      "links": [
+        {
+          "href": "/example/light/brightness",
+          "ocf.rt": ["oic.r.light.brightness"],
+          "ocf.if": ["oic.if.s"],
+          "outputschema": {
+            "type": "object",
+            "properties": {
+              "brightness": {
+                "type": "number",
+                "value": "{{level}}"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "semtype": ["action", "sch:setlevel"],
+      "name": "set brightness level",
+      "inputdata": {
+        "type": "object",
+        "properties": {
+          "targetlevel": {
+            "type": "number",
+            "semtype": "sch:level"
+          },
+          "ramptime": {
+            "type": "number",
+            "semtype": "sch:transitiontime"
+          }
+        }
+      },
+      "links": [
+        {
+          "href": "/example/light/",
+          "method": "ocf.update",
+          "ocf.rt": ["oic.r.light"],
+          "ocf.if": ["oic.if.b"],
+          "inputschema": {
+            "type": "object",
+            "properties": {
+              "href": {
+                "type": "string",
+                "value": ""
+              },
+              "rep": {
+                "type": "object",
+                "properties": {
+                  "brightness": {
+                    "type": "number",
+                    "value": "{{targetlevel}}"
+                  },
+                  "ramptime": {
+                    "type": "number",
+                    "value": "{{ramptime}}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
