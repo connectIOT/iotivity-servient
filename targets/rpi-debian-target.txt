@@ -43,4 +43,15 @@ git clone https://github.com/otcshare/iotivity-node
 cd iotivity-node
 npm install
 
-************************************
+git clone https://github.com/01org/iot-rest-api-server
+cd iot-rest-api-server
+npm install
+   
+change handlers/ocfhandler.js to require("../../iotivity-node") to point to the iotivity-node directory
+
+
+
+
+
+
+
