@@ -1,0 +1,46 @@
+step by step instructions for setting up an iotivity-servient on a Raspberry Pi Model 3 with raspbian lite
+
+
+sudo apt-get update
+sudo apt-get upgrade
+
+adduser wot
+passwd: servient
+
+sudo visudo 
+add:
+wot<tab>ALL=(ALL:ALL) ALL
+^X Y
+
+Install deps for iotivity-node and iotivity:
+
+sudo apt-get install npm
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n stable
+!sudo ln -sf /usr/local/n/versions/node/<VERSION>/bin/node /usr/bin/node 
+sudo ln -sf /usr/local/n/versions/node/7.10.0/bin/node /usr/bin/node 
+
+sudo apt-get install scons build-essential libboost-dev libexpat1-dev libboost-thread-dev uuid-dev libssl-dev
+
+sudo apt-get install libglib2.0-dev autoconf libtool git
+
+sudo apt-get install sqlite3 libsqlite3-dev
+
+wget http://mirrors.kernel.org/iotivity/1.2.1/iotivity-1.2.1.tar.gz
+
+tar xvf iotivity-1.2.1.tar.gz
+
+cd iotivity-1.2.1
+
+git clone https://github.com/01org/tinycbor.git extlibs/tinycbor/tinycbor -b v0.4
+
+scons TARGET_ARCH=arm WITH_RA=1 WITH_RA_IBB=1
+
+cd ..
+
+git clone https://github.com/otcshare/iotivity-node
+cd iotivity-node
+npm install
+
+************************************
