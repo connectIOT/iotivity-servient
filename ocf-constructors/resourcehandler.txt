@@ -1,0 +1,44 @@
+// OCF Resource Handler
+
+oncreate:
+  for each item in the create payload
+    register resource path and handlers for any created resources
+    add links to the hosting collection
+    process new link bindings; add observers and transfer handlers
+
+
+onretrieve:
+ontranslate:
+
+  if request.interface-type has collection oneOf [b,ll]
+    select links by query parameter matching
+    if interface-type is ll
+      return ll representation of the selected links
+    else if interface-type is batch
+      perform proxy retrieve of items using selected links
+      marshall responses and return batch response
+
+  else if request.interface-type is property-set anyOf [baseline,r,rw,s,a]
+    select property-set by query parameters
+    return result
+
+  else fail request
+
+
+onupdate:
+
+  if request.interface-type has collection oneOf [b]
+    select links by query Parameters
+    for each href item in the payload
+      perform proxy update of the corresponding item in the selected links
+      marshall responses and return batch response
+
+  else if interface-type is property-set  anyOf [baseline,r,rw,s,a]
+    select property-set by query parameter matching
+    perform update of selected properties from property values in the payload
+
+  else fail request
+
+
+ondelete:
+  recursively remove the resource, any resources in the path and links
