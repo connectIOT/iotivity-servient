@@ -1,25 +1,45 @@
 // OCF Resource Handler
+// handlers for resourceinstance
 
 oncreate:
+// create will create a new resource instance with a link pointing to it
+// or add a resource type to an existing resource instance and update the link
+// or add a link to a collection without creating a resource
+// accepts an array of instances or links
+
   for each item in the create payload
-    register resource path and handlers for any created resources
-    add links to the hosting collection
-    process new link bindings; add observers and transfer handlers
+    if properties are contained in the payload item
+      if the resource instance does not exist
+        create the resource instance
+        register resource path and handlers
+
+      add the properties to the resource internal state
+      update the linkAttributes of the resource internal state
+
+    if the link exists in the hosting collection e.g. /oic/res/
+      update the link
+    else
+      add a link based on the link attributes
+
+    for each link binding
+      process new link bindings; add observers and transfer handlers
 
 
 onretrieve:
-ontranslate:
 
-  if request.interface-type has collection oneOf [b,ll]
+  if request.interface is empty
+    set request.interface to resource instance default type
+
+  if request.interface contains a collection type, oneOf [b,ll]
     select links by query parameter matching
-    if interface-type is ll
+    if interface type is ll
       return ll representation of the selected links
-    else if interface-type is batch
+    else if interface type is batch
       perform proxy retrieve of items using selected links
       marshall responses and return batch response
 
-  else if request.interface-type is property-set anyOf [baseline,r,rw,s,a]
-    select property-set by query parameters
+  else if request.interface is property-set type, anyOf [baseline,r,rw,s,a]
+    select property set by if and rt query parameter matching
     return result
 
   else fail request
@@ -27,13 +47,16 @@ ontranslate:
 
 onupdate:
 
-  if request.interface-type has collection oneOf [b]
-    select links by query Parameters
+  if request.interface is empty
+    set request.interface to resource instance default type
+
+  if request.interface contains collection, oneOf [b]
+    select links by query parameter matching
     for each href item in the payload
       perform proxy update of the corresponding item in the selected links
       marshall responses and return batch response
 
-  else if interface-type is property-set  anyOf [baseline,r,rw,s,a]
+  else if request.interface is property-set type, anyOf [baseline,r,rw,s,a]
     select property-set by query parameter matching
     perform update of selected properties from property values in the payload
 
@@ -41,4 +64,26 @@ onupdate:
 
 
 ondelete:
-  recursively remove the resource, any resources in the path and links
+
+  recursively remove the resource, any resources in the path, and links
+
+
+// some useful functions bound to resourceinstance
+
+propertymap resourceinstance.properties.getselection(querymap)
+// input is a query map
+// returns map consisting of property names and values
+
+propertymap resourceinstance.properties.setselection(querymap, propertymap)
+// input is a query map and a property map
+// returns a map of properties that were set
+
+linklist resourceinstance.links.getselection(querymap)
+// input is a query map
+// returns a list of links
+
+propertymap resourceinstance.resourceproxy.retrieve(link)
+// retrieves an item in a collection according to a link
+
+propertymap resourceinstance.resourceproxy.update(link, propertymap)
+// updates an item in a collection according to a link and property map
