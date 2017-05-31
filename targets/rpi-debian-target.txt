@@ -4,6 +4,9 @@ step by step instructions for setting up an iotivity-servient on a Raspberry Pi 
 sudo apt-get update
 sudo apt-get upgrade
 
+enable ssh login using:
+sudo raspi-config 
+
 adduser wot
 passwd: servient
 
@@ -49,9 +52,9 @@ npm install
    
 change handlers/ocfhandler.js to require("../../iotivity-node") to point to the iotivity-node directory
 
+sudo wpa_passphrase "testing" "testingPassword" >> /etc/wpa_supplicant/wpa_supplicant.conf
 
-
-
+then edit the file: the string opposite psk in the file must be quoted
 
 
 
