@@ -32,9 +32,9 @@ onretrieve:
 
   if request.interface contains a collection type, oneOf [b,ll]
     select links by query parameter matching
-    if interface type is ll
+    if interface type is oic.if.ll
       return ll representation of the selected links
-    else if interface type is batch
+    else if interface type is oic.if.b
       perform proxy retrieve of items using selected links
       marshall responses and return batch response
 
@@ -71,15 +71,15 @@ ondelete:
 // some useful functions bound to resourceinstance
 
 propertymap resourceinstance.properties.getselection(querymap)
-// input is a query map
+// input is a query map with rt and if
 // returns map consisting of property names and values
 
 propertymap resourceinstance.properties.setselection(querymap, propertymap)
-// input is a query map and a property map
+// input is a query map with rt and if, and a property map
 // returns a map of properties that were set
 
-linklist resourceinstance.links.getselection(querymap)
-// input is a query map
+linklist resourceinstance.links.getlinkselection(querymap)
+// input is a query map with link attributes
 // returns a list of links
 
 propertymap resourceinstance.resourceproxy.retrieve(link)
@@ -87,3 +87,11 @@ propertymap resourceinstance.resourceproxy.retrieve(link)
 
 propertymap resourceinstance.resourceproxy.update(link, propertymap)
 // updates an item in a collection according to a link and property map
+
+propertymap resourceinstance.resourceproxy.retrieveselection(link, querymap)
+// retrieves an item in a collection according to a link
+// like getselection, uses a query map to select properties in the item
+
+propertymap resourceinstance.resourceproxy.updateselection(link, querymap, propertymap)
+// updates an item in a collection according to a link with a property map
+// like setselection, uses a query map to select properties in the item
